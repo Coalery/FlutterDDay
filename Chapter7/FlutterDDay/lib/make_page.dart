@@ -134,8 +134,3 @@ class _MakePageState extends State<MakePage> {
     );
   }
 }
-
-class AlwaysDisabledFocusNode extends FocusNode {
-  @override
-  bool get hasFocus => false;
-}
