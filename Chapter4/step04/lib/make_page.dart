@@ -17,12 +17,14 @@ class MakePage extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        children: [
-          _customImageButton(context),
-          _customTextField('제목'),
-          _customTextField('날짜')
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _customImageButton(context),
+            _customTextField('제목'),
+            _customTextField('날짜')
+          ],
+        )
       )
     );
   }
