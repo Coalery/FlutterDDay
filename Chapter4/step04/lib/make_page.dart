@@ -54,7 +54,7 @@ class MakePage extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       child: AspectRatio(
         aspectRatio: 16 / 9,
-          child: TextButton(
+        child: TextButton(
           onPressed: () {
 
           },
