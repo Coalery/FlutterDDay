@@ -23,4 +23,15 @@ void main() {
   car.owner = '러어리이';
   car.run();
   car.stop();
+
+  print('Car2 : ');
+  Car car2 = Car();
+  car2.size = 500;
+  car2.owner = '누구누구';
+  car2.run();
+  car2.stop();
+
+  print('Car1 : ');
+  car.run();
+  car.stop();
 }
