@@ -9,6 +9,8 @@ class MakePage extends StatefulWidget {
 }
 
 class _MakePageState extends State<MakePage> {
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController dateController = TextEditingController();
   String? imagePath;
   
   void getGalleryImage() async {
@@ -40,18 +42,19 @@ class _MakePageState extends State<MakePage> {
         child: Column(
           children: [
             _customImageButton(context),
-            _customTextField('제목'),
-            _customTextField('날짜')
+            _customTextField('제목', titleController),
+            _customTextField('날짜', dateController)
           ],
         )
       )
     );
   }
 
-  Widget _customTextField(String text) {
+  Widget _customTextField(String text, TextEditingController controller) {
     return Padding(
       padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
       child: TextField(
+        controller: controller,
         style: TextStyle(
           color: Color(0xFFFFFFFF),
           fontSize: 24,
