@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
+import 'package:step01/item.dart';
 
 class MakePage extends StatefulWidget {
   @override
@@ -22,6 +24,20 @@ class _MakePageState extends State<MakePage> {
     });
   }
 
+  void complete(BuildContext context) async {
+    if(titleController.text.isEmpty) return;
+    if(dateController.text.isEmpty) return;
+
+    DateTime date = DateFormat('yyyy-MM-dd').parse(dateController.text);
+
+    Item result = Item(
+      title: titleController.text,
+      date: date,
+      imagePath: imagePath
+    );
+    Navigator.pop(context, result);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +49,7 @@ class _MakePageState extends State<MakePage> {
           TextButton(
             child: Text("완료", style: TextStyle(fontSize: 17)),
             onPressed: () {
-              
+              complete(context);
             }
           )
         ],
