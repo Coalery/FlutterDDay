@@ -68,17 +68,15 @@ class _MakePageState extends State<MakePage> {
         ],
       ),
       body: SingleChildScrollView(
-        child: _makeDdayWidget(context)
+        child: Column(
+          children: [
+            _customImageButton(context),
+            _customTextField('제목', titleController),
+            _customTextField('날짜', dateController)
+          ]
+        )
       )
     );
-  }
-
-  Widget _makeDdayWidget(BuildContext context) {
-    return Column(children: [
-      _customImageButton(context),
-      _customTextField('제목', titleController),
-      _customTextField('날짜', dateController)
-    ]);
   }
 
   Widget _customTextField(String text, TextEditingController controller) {
