@@ -18,7 +18,7 @@ class _MakePageState extends State<MakePage> {
   final dateController = TextEditingController();
   String? imagePath;
 
-  getGalleryImage() async {
+  void getGalleryImage() async {
     PickedFile? image = await ImagePicker().getImage(source: ImageSource.gallery);
     if(image == null) return;
 
@@ -33,7 +33,7 @@ class _MakePageState extends State<MakePage> {
     });
   }
 
-  complete(BuildContext context) async {
+  void complete(BuildContext context) async {
     if(titleController.text.isEmpty) return;
     if(dateController.text.isEmpty) return;
     
