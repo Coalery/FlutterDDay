@@ -18,8 +18,12 @@ void main() {
   print(list1.length); // 4
   // 리스트의 길이를 구하는 방법이에요.
 
+                           // (value) { return value * 2; } 와 똑같아요.
   List<int> list2 = list1.map((value) => value * 2).toList();
   // 'list1'의 모든 요소에 2를 곱한 리스트를 새로 만들어요.
   print(list2); // [2, 8, 4, 6]
   print(sum(list2)); // 2 + 8 + 4 + 6 = 20
+
+  List<String> list3 = list1.map((value) { return '${value}분'; }).toList();
+  print(list3);
 }
