@@ -15,6 +15,9 @@ void main() {
   int sum2 = sum([1, 2, 3, 4, 5]);
   print(sum2); // 1 + 2 + 3 + 4 + 5 = 15
 
+  print(list1.length); // 4
+  // 리스트의 길이를 구하는 방법이에요.
+
   List<int> list2 = list1.map((value) => value * 2).toList();
   // 'list1'의 모든 요소에 2를 곱한 리스트를 새로 만들어요.
   print(list2); // [2, 8, 4, 6]
