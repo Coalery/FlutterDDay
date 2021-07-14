@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:step01/make_page.dart';
 import 'package:step01/widget/dday_unit.dart';
 
-class MainPage extends StatelessWidget {
+import 'item.dart';
+
+class MainPage extends StatefulWidget {
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  List<Item> items = [];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,18 +28,19 @@ class MainPage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MakePage())
-                );
+                ).then((newItem) {
+                  setState(() {
+                    items.add(newItem);
+                  });
+                });
               }
             )
           ],
         ),
         body: ListView(
-          children: [
-            DDayUnit(title: '병원', dday: 'D-13'),
-            DDayUnit(title: '미적 과제', dday: 'D-12'),
-            DDayUnit(title: '누구누구 만나야함', dday: 'D-24'),
-            DDayUnit(title: '생일', dday: 'D-122')
-          ]
+          children: items.map(
+            (item) => DDayUnit(item: item)
+          ).toList()
         )
       )
     );

@@ -1,22 +1,39 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
+import '../item.dart';
+
 class DDayUnit extends StatelessWidget {
-  final String title;
-  final String dday;
+  final Item item;
 
   DDayUnit({
-    required this.title,
-    required this.dday
+    required this.item
   });
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    Duration diff = item.date.difference(now);
+    int days = diff.inDays + 1;
+
+    String dateString = 'D-$days';
+
+    DecorationImage? image;
+    if(item.imagePath != null) {
+      image = DecorationImage(
+        image: FileImage(File(item.imagePath!)),
+        fit: BoxFit.cover
+      );
+    }
+
     return Container(
       margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Color(0x33D4D4D4)),
+        image: image
       ),
       child: AspectRatio(
         aspectRatio: 16 / 9,
@@ -39,7 +56,7 @@ class DDayUnit extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  title,
+                  item.title,
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontSize: 20,
@@ -47,7 +64,7 @@ class DDayUnit extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  dday,
+                  dateString,
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontSize: 20,
