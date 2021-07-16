@@ -23,14 +23,13 @@ class _MainPageState extends State<MainPage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {
-              Navigator.push(
+            onPressed: () async {
+              Item newItem = await Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => MakePage()),
-              ).then((newItem) async {
-                await save([...items, newItem]);
-                setState(() {});
-              });
+              );
+              await save([...items, newItem]);
+              setState(() {});
             },
           )
         ],
