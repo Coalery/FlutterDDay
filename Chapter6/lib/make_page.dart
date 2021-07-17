@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path/path.dart';
 import 'package:step01/item.dart';
 
 class MakePage extends StatefulWidget {
@@ -18,9 +20,15 @@ class _MakePageState extends State<MakePage> {
   void getGalleryImage() async {
     PickedFile? image = await ImagePicker().getImage(source: ImageSource.gallery);
     if(image == null) return;
+
+    Directory tempDir = await getApplicationDocumentsDirectory();
+    String path = tempDir.path;
+    String fileName = basename(image.path);
+
+    File localImage = await File(image.path).copy('$path/$fileName');
     
     setState(() {
-      imagePath = image.path;
+      imagePath = localImage.path;
     });
   }
 
