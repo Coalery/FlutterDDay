@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../colors.dart';
 import '../item.dart';
 
 class DDayUnit extends StatelessWidget {
@@ -40,7 +39,7 @@ class DDayUnit extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: UsedColor.line),
+        border: Border.all(color: Color(0x33D4D4D4)),
         image: DecorationImage(
           image: imageProvider,
           fit: BoxFit.cover,
@@ -55,8 +54,8 @@ class DDayUnit extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                UsedColor.gradationStart,
-                UsedColor.gradationEnd,
+                Color(0x00000000),
+                Color(0xE0000000),
               ]
             )
           ),
@@ -69,7 +68,7 @@ class DDayUnit extends StatelessWidget {
                 Text(
                   item.title,
                   style: TextStyle(
-                    color: UsedColor.text,
+                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),
@@ -77,7 +76,7 @@ class DDayUnit extends StatelessWidget {
                 Text(
                   dateString,
                   style: TextStyle(
-                    color: UsedColor.text,
+                    color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   )

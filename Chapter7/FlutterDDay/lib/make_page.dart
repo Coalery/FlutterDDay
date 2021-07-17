@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterdday/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
@@ -54,10 +53,10 @@ class _MakePageState extends State<MakePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UsedColor.background,
+      backgroundColor: Color(0xFF27282D),
       appBar: AppBar(
         title: Text('생성하기'),
-        backgroundColor: UsedColor.black,
+        backgroundColor: Color(0xFF1D1D1D),
         actions: <Widget>[
           TextButton(
             child: Text("완료", style: TextStyle(fontSize: 17)),
@@ -85,17 +84,17 @@ class _MakePageState extends State<MakePage> {
       child: TextField(
         controller: controller,
         style: TextStyle(
-          color: UsedColor.white,
+          color: Colors.white,
           fontSize: 24,
         ),
         decoration: InputDecoration(
           labelText: text,
-          labelStyle: TextStyle(color: UsedColor.dimedText),
+          labelStyle: TextStyle(color: Color(0xFF5A5B6A)),
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: UsedColor.line),
+            borderSide: BorderSide(color: Color(0x33D4D4D4)),
           ),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: UsedColor.white),
+            borderSide: BorderSide(color: Colors.white),
           ),
         )
       )
@@ -103,7 +102,7 @@ class _MakePageState extends State<MakePage> {
   }
 
   Widget _customImageButton(BuildContext context) {
-    Widget image = Icon(Icons.photo_album, color: UsedColor.dimedText);
+    Widget image = Icon(Icons.photo_album, color: Color(0xFF5A5B6A));
 
     if(imagePath != null) {
       image = Image.file(
@@ -123,7 +122,7 @@ class _MakePageState extends State<MakePage> {
           },
           style: ButtonStyle(
             foregroundColor: MaterialStateProperty.all(
-              UsedColor.SecondaryBackgroundColor
+              Color(0xFF3C3D46)
             )
           ),
           child: image

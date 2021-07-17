@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
 import 'item.dart';
 import 'make_page.dart';
 import 'sharedPref.dart';
@@ -16,7 +15,7 @@ class _MainPageState extends State<MainPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: UsedColor.background,
+      backgroundColor: Color(0xFF27282D),
       appBar: AppBar(
         title: Text('디데이'),
         backgroundColor: Colors.black,
@@ -60,7 +59,7 @@ class _MainPageState extends State<MainPage> {
       child: Text('등록된 디데이가 없습니다.\n디데이를 추가해주세요!',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: UsedColor.text,
+          color: Colors.white,
           fontSize: 20
         )
       )
