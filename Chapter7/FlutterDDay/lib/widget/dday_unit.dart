@@ -23,14 +23,20 @@ class DDayUnit extends StatelessWidget {
 
     DateTime now = DateTime.now();
     Duration diff = item.date.difference(now);
-    int days = diff.inDays + 1;
+    int days = diff.inDays;
+
+    print(days);
+    print(now);
+    print(item.date);
 
     String dateString;
-
-    if(days <= 0) {
+    if(days == 0) {
+      dateString = 'D-DAY';
+    } else if(days < 0) {
       days = days.abs();
       dateString = 'D+$days';
     } else {
+      days++;
       dateString = 'D-$days';
     }
 
