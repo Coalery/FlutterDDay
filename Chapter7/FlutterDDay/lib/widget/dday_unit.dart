@@ -25,10 +25,6 @@ class DDayUnit extends StatelessWidget {
     Duration diff = item.date.difference(now);
     int days = diff.inDays;
 
-    print(days);
-    print(now);
-    print(item.date);
-
     String dateString;
     if(days == 0) {
       dateString = 'D-DAY';
